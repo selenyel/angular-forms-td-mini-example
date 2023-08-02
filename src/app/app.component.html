@@ -2,54 +2,64 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-        <label for="email"> Email</label>
-        <input
-          type="email"
-          name="email"
-          class="form-control"
-          [(ngModel)]= 'formDatas.email'
-          email
-          required
-          #customEmailLocalReference = 'ngModel'
-          [ngStyle] = "{'border' : !customEmailLocalReference.valid && customEmailLocalReference.touched ? '1px solid crimson' : ''}"
-        >
-        <hr>
-        <label for="subscription"> Subscription Type</label>
-        <select     
-          name="subscription"        
-          id="subscription"
-          class="form-control" 
-          [ngModel]='subscriptions[1]'
-        >
-          <option *ngFor="let subs of subscriptions" (value)="subs">{{subs}}</option>
-        </select>
-        <hr>
-
-        <label for="subscription">Password</label>
-        <div style="display: flex;">
+        <div class="form-group">
+          <label for="email" style="margin-top: 1em;"> Email</label>
           <input
-          [type]="hide ? 'password' : 'text'"
-          name="password"
-          class="form-control" 
-          [(ngModel)]= 'formDatas.password'
-          required
-          #customLocalRefPassword = 'ngModel'
-          [ngStyle] = "{'border' : !customLocalRefPassword.valid && customLocalRefPassword.touched ? '1px solid crimson' : ''}"
-        >
-        <button           
-          class="btn btn-primary" 
-          type="button" 
-          (click)="hide=!hide"
-          style="width: 2.8em;"
-        >
-          {{hide ? 'O' : '-'}}
-        </button>
+            type="email"
+            name="email"
+            class="form-control"
+            [(ngModel)]= 'formDatas.email'
+            email
+            required
+            #customEmailLocalReference = 'ngModel'
+            [ngStyle] = "{'border' : !customEmailLocalReference.valid && customEmailLocalReference.touched ? '1px solid crimson' : ''}"
+          >
+          <span style="color: red;" *ngIf = "!customEmailLocalReference.valid && customEmailLocalReference.touched"> Invalid Email </span>
+
         </div>
 
+        <hr>
 
-        <!-- <VisibilityIcon/> -->
+        <div class="form-group">
+          <label for="subscription"> Subscription Type</label>
+          <select     
+            name="subscription"        
+            id="subscription"
+            class="form-control" 
+            [ngModel]='subscriptions[1]'
+          >
+            <option *ngFor="let subs of subscriptions" (value)="subs">{{subs}}</option>
+          </select>
+        </div>
         
         <hr>
+
+        <div class="form-group">
+          <label for="subscription">Password</label>
+          <div style="display: flex;">
+            <input
+              [type]="hide ? 'password' : 'text'"
+              name="password"
+              class="form-control" 
+              [(ngModel)]= 'formDatas.password'
+              required
+              #customLocalRefPassword = 'ngModel'
+              [ngStyle] = "{'border' : !customLocalRefPassword.valid && customLocalRefPassword.touched ? '1px solid crimson' : ''}"
+            >
+            <button           
+              class="btn btn-primary" 
+              type="button" 
+              (click)="hide=!hide"
+              style="width: 2.8em;"
+            >
+            {{hide ? 'O' : '-'}}
+            </button>
+          </div>
+          <span style="color: red;" *ngIf = "!customLocalRefPassword.valid && customLocalRefPassword.touched"> Invalid Password </span>
+        </div>
+        
+        <hr>
+
         <button
           class="btn btn-primary" 
           type="submit"
