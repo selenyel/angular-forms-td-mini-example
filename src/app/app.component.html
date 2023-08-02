@@ -28,7 +28,7 @@
             class="form-control" 
             [ngModel]='subscriptions[1]'
           >
-            <option *ngFor="let subs of subscriptions" (value)="subs">{{subs}}</option>
+            <option *ngFor="let sub of subscriptions" (value)="sub">{{sub}}</option>
           </select>
         </div>
         
@@ -59,13 +59,16 @@
         </div>
         
         <hr>
-
+       
         <button
           class="btn btn-primary" 
           type="submit"
           (onClick)="onSubmit()"
           [disabled] = '!myForm.valid'
         >Submit</button>
+
+        <span style="color: red;" *ngIf = "!myForm.valid && myForm.touched"> Invalid Form </span>
+
       </form>
 
       <div class="row" *ngIf="submitted">

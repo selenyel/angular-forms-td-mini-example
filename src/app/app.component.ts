@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
-  @ViewChild('myForm') theForm : NgForm;
+  @ViewChild('myForm', {static:false}) theForm : NgForm;
 
   subscriptions = ["Basic", "Advanced", "Pro"]
   hide = true;
