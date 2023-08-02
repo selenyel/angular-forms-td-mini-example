@@ -26,7 +26,8 @@
         <hr>
 
         <label for="subscription">Password</label>
-        <input
+        <div style="display: flex;">
+          <input
           [type]="hide ? 'password' : 'text'"
           name="password"
           class="form-control" 
@@ -35,7 +36,16 @@
           #customLocalRefPassword = 'ngModel'
           [ngStyle] = "{'border' : !customLocalRefPassword.valid && customLocalRefPassword.touched ? '1px solid crimson' : ''}"
         >
-        <ng-icon name="heroUsers"></ng-icon>
+        <button           
+          class="btn btn-primary" 
+          type="button" 
+          (click)="hide=!hide"
+          style="width: 2.8em;"
+        >
+          {{hide ? 'O' : '-'}}
+        </button>
+        </div>
+
 
         <!-- <VisibilityIcon/> -->
         
