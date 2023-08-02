@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
