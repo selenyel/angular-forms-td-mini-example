@@ -67,7 +67,12 @@
           [disabled] = '!myForm.valid'
         >Submit</button>
 
-        <span style="color: red;" *ngIf = "!myForm.valid && myForm.touched"> Invalid Form </span>
+        <span 
+          style="color: red;" 
+          *ngIf = "!myForm.valid && myForm.touched"
+        > 
+          Invalid Form 
+        </span>
 
       </form>
 
